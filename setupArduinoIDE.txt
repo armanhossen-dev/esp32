@@ -1,0 +1,15 @@
+follow this web: https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/
+
+
+
+Installing ESP32 Add-on in Arduino IDE
+    1.In your Arduino IDE, go to File> Preferences
+    2.Enter the following into the “Additional Board Manager URLs” field:
+        https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+    Then, click the “OK” button:
+    3.Open the Boards Manager. Go to Tools > Board > Boards Manager…
+    4.Search for ESP32 and press install button for the “ESP32 by Espressif Systems“:
+    5.That’s it. It should be installed after a few seconds.
+
+    next step after changing the esp32 from  the shop!
+    https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/#:~:text=Testing%20the%20Installation

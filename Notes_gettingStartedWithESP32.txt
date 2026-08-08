@@ -1,0 +1,15 @@
+https://youtu.be/ZWnEC6nZPNI
+
+go to:
+https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/macos-setup.html
+
+https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/index.html#:~:text=Installation%20of%20ESP,Tools%20on%20macOS
+
+https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/macos-setup.html
+
+Step 1: Install the Prerequisites
+goto terminal and past this line and press enter
+
+brew install libgcrypt glib pixman sdl2 libslirp dfu-util cmake python
+
+https://www.arduino.cc/en/software/
