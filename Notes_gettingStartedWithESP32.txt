@@ -15,6 +15,11 @@ brew install libgcrypt glib pixman sdl2 libslirp dfu-util cmake python
 https://www.arduino.cc/en/software/
 
 
+
+
+
+
+#### connecting the esp with the dispaly:
 https://youtu.be/wiu2lC0JfTA
 i need extension in vs code name: PlatformIO IDE
 after that click on its icon on the left side bar and it will install again and reload window then i will  have Pick a folder and Create New Project button
@@ -41,4 +46,20 @@ lib_deps =
     adafruit/Adafruit SSD1306@^2.5.7
     adafruit/Adafruit GFX Library@^1.11.9
 
+
+
+
+
+#### adding animaitons to the screen!!!!
 now add what ever codes and gfx you wanna show on that screen!!! good luck
+
+https://youtu.be/o3PhC_VJdXo
+
+some websites for animations
+https://animator.wokwi.com/
+
+simulator:
+https://wokwi.com/esp32
+signin or signup then you can create and practice before making the circit
+https://wokwi.com/projects/new/esp32
+
