@@ -13,3 +13,32 @@ goto terminal and past this line and press enter
 brew install libgcrypt glib pixman sdl2 libslirp dfu-util cmake python
 
 https://www.arduino.cc/en/software/
+
+
+https://youtu.be/wiu2lC0JfTA
+i need extension in vs code name: PlatformIO IDE
+after that click on its icon on the left side bar and it will install again and reload window then i will  have Pick a folder and Create New Project button
+- click on Create new project (it will open a new window andd named PIO Home)
+-- click on New Project (in that window)
+--- give project name, board = espressif esp32 dev module,,,, then select where to create folder than , it will take time and create all nessessary folders needed!
+
+once the folder is setup and then we will go to the src folder and in the main.cpp and edit that code!!!!
+
+in the platformio.ini folder of my oled_esp32 project, 
+[platformio.ini = Installation file]
+i have to modify the defaul lines 
+
+[env:esp32dev]
+platform = espressif32
+board = esp32dev
+framework = arduino
+
+add more there some libraries
+
+monitor_speed = 115200
+
+lib_deps = 
+    adafruit/Adafruit SSD1306@^2.5.7
+    adafruit/Adafruit GFX Library@^1.11.9
+
+now add what ever codes and gfx you wanna show on that screen!!! good luck
