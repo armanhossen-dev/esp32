@@ -17,8 +17,6 @@ The device connects to Wi-Fi on boot, fetches accurate local time from an **NTP 
 
 ## 🔌 Pin Connection Guide
 
-![](https://raw.githubusercontent.com/armanhossen-dev/esp32/refs/heads/main/ESP_32-%26-Display/OLED_ESP32/Real-TimeClock/pin.png)
-
 | OLED Display Pin | ESP32 Pin | Function / Wire Note |
 |---|---|---|
 | GND | GND | Ground |
