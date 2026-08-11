@@ -13,3 +13,6 @@ Installing ESP32 Add-on in Arduino IDE
 
     next step after changing the esp32 from  the shop!
     https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/#:~:text=Testing%20the%20Installation
+
+note: extra
+    https://www.wch-ic.com/downloads/CH341SER_MAC_ZIP.html
