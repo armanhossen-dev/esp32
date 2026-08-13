@@ -9,11 +9,7 @@
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-#define BUZZER_PIN   23
-#define TOUCH_PIN    4
-// Adjust proximity sensitivity:
-// Standard reading is ~70-80. Lower values trigger when your hand gets near.
-#define PROXIMITY_THRESHOLD 45 
+#define BUZZER_PIN 23
 
 // --- Musical Note Definitions (in Hz) ---
 #define NOTE_C4  262
@@ -43,64 +39,62 @@ int noteDurations[] = {
 };
 
 void setup() {
-  Serial.begin(115200);
   pinMode(BUZZER_PIN, OUTPUT);
 
+  // Initialize OLED
   if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
     for(;;); // Loop forever if OLED fails
   }
-
-  showIdleScreen();
 }
 
 void loop() {
-  int sensorValue = touchRead(TOUCH_PIN);
+  // 1. Play the Happy Birthday Song & Screen Animation
+  playHappyBirthday();
 
-  // Trigger when hand gets near (capacitance drops)
-  if (sensorValue < PROXIMITY_THRESHOLD) {
-    playHappyBirthday();
-    showIdleScreen(); // Return to waiting screen after song finishes
-  }
-  
-  delay(100);
-}
+  // 2. Display a resting "Finished" screen
+  showPauseScreen();
 
-void showIdleScreen() {
-  display.clearDisplay();
-  display.setTextColor(SSD1306_WHITE);
-  display.setTextSize(1);
-  display.setCursor(15, 20);
-  display.println(F("WAVE HAND NEAR"));
-  display.setCursor(25, 35);
-  display.println(F("TO START! <3"));
-  display.display();
+  // 3. Pause for 5 seconds before playing again
+  delay(5000); 
 }
 
 void playHappyBirthday() {
   int totalNotes = sizeof(melody) / sizeof(melody[0]);
 
   for (int thisNote = 0; thisNote < totalNotes; thisNote++) {
-    // Update OLED graphic per note
+    // Draw Animated OLED Text
     display.clearDisplay();
+    display.setTextColor(SSD1306_WHITE);
     display.setTextSize(2);
-    display.setCursor(10, 15);
+    display.setCursor(10, 12);
     display.println(F("HAPPY"));
-    display.setCursor(10, 35);
+    display.setCursor(10, 36);
     display.println(F("BIRTHDAY!"));
 
-    // Random decorative twinkling stars on screen
+    // Draw random twinkling background stars
     for (int star = 0; star < 12; star++) {
       display.drawPixel(random(0, 128), random(0, 64), SSD1306_WHITE);
     }
     display.display();
 
-    // Calculate note duration (tempo set to ~1000ms base)
+    // Calculate note length and play tone
     int noteDuration = 1000 / noteDurations[thisNote];
     tone(BUZZER_PIN, melody[thisNote], noteDuration);
 
-    // Pause between notes to distinguish them
+    // Short pause between notes
     int pauseBetweenNotes = noteDuration * 1.30;
     delay(pauseBetweenNotes);
     noTone(BUZZER_PIN);
   }
+}
+
+void showPauseScreen() {
+  display.clearDisplay();
+  display.setTextColor(SSD1306_WHITE);
+  display.setTextSize(1);
+  display.setCursor(20, 20);
+  display.println(F("HAPPY BIRTHDAY!"));
+  display.setCursor(15, 40);
+  display.println(F("Replay in 5 sec..."));
+  display.display();
 }
